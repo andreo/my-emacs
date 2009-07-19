@@ -61,17 +61,17 @@
 (require 'erlang-start)
 
 ;; magit
-(add-to-list 'load-path "~/.emacs.d/magit")
+(add-to-list 'load-path "~/.emacs.d/my-emacs/magit")
 (require `magit)
 (global-set-key (kbd "\e\emg") 'magit-status)
 
 ;; ruby mode
-(add-to-list 'load-path "~/.emacs.d/ruby/ruby-emacs")
+(add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/ruby-emacs")
 (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 ;; rails
-(add-to-list 'load-path "~/.emacs.d/ruby/emacs-rails")
+(add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/emacs-rails")
 (require 'rails)
 
