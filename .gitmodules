@@ -10,3 +10,6 @@
 [submodule "ruby/rinari"]
 	path = ruby/rinari
 	url = git://github.com/eschulte/rinari.git
+[submodule "jump"]
+	path = jump
+	url = git://github.com/eschulte/jump.el.git
