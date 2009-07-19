@@ -1,3 +1,0 @@
-[submodule "emacs-rails"]
-  path = ruby/emacs-rails
-  url = git://github.com/remvee/emacs-rails.git
