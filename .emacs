@@ -75,3 +75,9 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/emacs-rails")
 (require 'rails)
 
+;; jump
+(add-to-list 'load-path "~/.emacs.d/my-emacs/jump")
+
+;; rinari
+(add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/rinari")
+(require 'rinari)
