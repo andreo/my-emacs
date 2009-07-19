@@ -75,6 +75,19 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/emacs-rails")
 (require 'rails)
 
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(rails-ws:default-server-type "webrick"))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
 ;; jump
 (add-to-list 'load-path "~/.emacs.d/my-emacs/jump")
 
@@ -85,3 +98,4 @@
 ;; rhtml
 (add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/rhtml")
 (require 'rhtml-mode)
+
