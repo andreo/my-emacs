@@ -7,9 +7,3 @@
 [submodule "magit"]
 	path = magit
 	url = git://gitorious.org/magit/mainline.git
-[submodule "jump"]
-	path = jump
-	url = git://github.com/eschulte/jump.el.git
-[submodule "ruby/rinari"]
-	path = ruby/rinari
-	url = git://github.com/eschulte/rinari.git
