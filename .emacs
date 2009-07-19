@@ -81,3 +81,7 @@
 ;; rinari
 (add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/rinari")
 (require 'rinari)
+
+;; rhtml
+(add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/rhtml")
+(require 'rhtml-mode)

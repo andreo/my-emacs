@@ -13,3 +13,6 @@
 [submodule "jump"]
 	path = jump
 	url = git://github.com/eschulte/jump.el.git
+[submodule "ruby/rhtml"]
+	path = ruby/rhtml
+	url = git://github.com/eschulte/rhtml.git
