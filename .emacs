@@ -99,3 +99,10 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs/ruby/rhtml")
 (require 'rhtml-mode)
 
+
+;; color-theme
+(add-to-list 'load-path "~/.emacs.d/my-emacs/color-theme")
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-arjen)
+
