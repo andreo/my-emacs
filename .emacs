@@ -15,9 +15,8 @@
 (setq-default transient-mark-mode t)
 (setq next-line-add-newlines nil)
 (global-font-lock-mode 1 t)
-(windmove-default-keybindings 'meta)
+(windmove-default-keybindings)
 (setq scroll-step 1)
-(global-hl-line-mode 1)
 
 (setq inhibit-startup-message t) ;;не показывать сообщение при старте
 (fset 'yes-or-no-p 'y-or-n-p) ;;не заставляйте меня печать yes целиком
