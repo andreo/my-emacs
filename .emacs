@@ -114,3 +114,8 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
+;; auto-install
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.d/my-emacs/auto-install/")
+(auto-install-update-emacswiki-package-name t)
