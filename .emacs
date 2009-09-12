@@ -15,7 +15,7 @@
 (setq-default transient-mark-mode t)
 (setq next-line-add-newlines nil)
 (global-font-lock-mode 1 t)
-(windmove-default-keybindings)
+;;(windmove-default-keybindings)
 (setq scroll-step 1)
 
 (setq inhibit-startup-message t) ;;не показывать сообщение при старте
@@ -110,3 +110,7 @@
 (color-theme-initialize)
 (color-theme-arjen)
 
+(load "~/.emacs.d/my-emacs/haskell-mode-2.4/haskell-site-file")
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
