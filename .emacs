@@ -126,3 +126,6 @@
 ;; terminal
 (require 'multi-term)
 (global-set-key (kbd "\e\e1") 'multi-term)
+
+;; anything
+(require 'anything-config)
