@@ -1,0 +1,12 @@
+* ebooks
+** TODO Agile Web Development with Rails 3nd Edition Beta.pdf
+   CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
+** TODO Design_Patterns_In_Ruby.pdf
+   CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 01:12] =>  0:21
+   CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
+** TODO Practical_Django_projects.pdf
+   CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
+** TODO Pro_Django.pdf
+   CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
+** TODO xUnit Test Patterns Refactoring Test Code (2007).pdf
+   CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
