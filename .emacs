@@ -119,3 +119,6 @@
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/my-emacs/auto-install/")
 (auto-install-update-emacswiki-package-name t)
+
+;; run my org mode
+(find-file "~/.emacs.d/my-emacs/my.org")
