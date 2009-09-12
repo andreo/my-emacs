@@ -1,6 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs")
+(add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
-(global-set-key (kbd "\e\e1") 'ansi-term)
 (global-set-key (kbd "\e\ef") 'find-dired)
 (global-set-key (kbd "\e\eg") 'rgrep)
 
@@ -122,3 +122,7 @@
 
 ;; run my org mode
 (find-file "~/.emacs.d/my-emacs/my.org")
+
+;; terminal
+(require 'multi-term)
+(global-set-key (kbd "\e\e1") 'multi-term)
