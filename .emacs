@@ -129,3 +129,7 @@
 
 ;; anything
 (require 'anything-config)
+
+;; jabber
+(add-to-list 'load-path "~/.emacs.d/my-emacs/jabber")
+(require 'jabber-autoloads)

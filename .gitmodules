@@ -16,3 +16,6 @@
 [submodule "ruby/rhtml"]
 	path = ruby/rhtml
 	url = git://github.com/eschulte/rhtml.git
+[submodule "jabber"]
+	path = jabber
+	url = git://emacs-jabber.git.sourceforge.net/gitroot/emacs-jabber/emacs-jabber
