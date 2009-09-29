@@ -9,6 +9,7 @@
 ** TODO examine [[http://www.emacswiki.org/cgi-bin/wiki/Anything#toc6][anything]]
 
 * ebooks
+** TODO [[http://fprog.ru/2009/issue2/practice-fp-2-ebook.pdf][fp]]
 ** TODO Agile Web Development with Rails 3nd Edition Beta.pdf
    CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
 ** TODO Design_Patterns_In_Ruby.pdf
