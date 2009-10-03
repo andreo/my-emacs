@@ -9,6 +9,7 @@
 ** TODO examine [[http://www.emacswiki.org/cgi-bin/wiki/Anything#toc6][anything]]
 
 * ebooks
+** TODO [[http://book.realworldhaskell.org/read/types-and-functions.html][haskell]]
 ** TODO [[http://fprog.ru/2009/issue2/practice-fp-2-ebook.pdf][fp]]
 ** TODO Agile Web Development with Rails 3nd Edition Beta.pdf
    CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
@@ -21,3 +22,11 @@
    CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
 ** TODO xUnit Test Patterns Refactoring Test Code (2007).pdf
    CLOCK: [2009-08-31 Mon 00:51]--[2009-08-31 Mon 00:51] =>  0:00
+* howto
+** restart network
+sudo /etc/init.d/networking restart
+
+** configure DHCP
+sudo emacs /etc/network/interfaces
+auto eth0
+iface eth0 inet dhcp
