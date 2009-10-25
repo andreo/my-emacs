@@ -30,3 +30,6 @@ sudo /etc/init.d/networking restart
 sudo emacs /etc/network/interfaces
 auto eth0
 iface eth0 inet dhcp
+
+** mount windows share
+sudo smbmount \\\\Serwer\\D /mnt/D -o username=administrator,password="&slon",rw,iocharset=utf8
