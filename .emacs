@@ -136,3 +136,6 @@
 
 ;;linum-mode
 (global-linum-mode 1)
+
+;;disabling tool-bar
+(tool-bar-mode -1)
