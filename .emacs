@@ -3,6 +3,8 @@
 
 (global-set-key (kbd "\e\ef") 'find-dired)
 (global-set-key (kbd "\e\eg") 'rgrep)
+(global-set-key (kbd "<f9>") 'next-error)
+(global-set-key (kbd "S-<f9>") 'previous-error)
 
 ;;;;;;;;;;;;;;;;;
 ;; APPEARANCE
