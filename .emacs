@@ -1,3 +1,5 @@
+(server-start)
+
 (add-to-list 'load-path "~/.emacs.d/my-emacs")
 (add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
