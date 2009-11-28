@@ -1,6 +1,6 @@
 [submodule "ruby/emacs-rails"]
 	path = ruby/emacs-rails
-	url = git://github.com/tomtt/emacs-rails.git
+	url = git://github.com/remvee/emacs-rails.git
 [submodule "ruby/ruby-emacs"]
 	path = ruby/ruby-emacs
 	url = git://github.com/smtlaissezfaire/ruby-emacs.git
