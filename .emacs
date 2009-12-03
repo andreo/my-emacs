@@ -7,6 +7,7 @@
 (global-set-key (kbd "\e\eg") 'rgrep)
 (global-set-key (kbd "<f9>") 'next-error)
 (global-set-key (kbd "S-<f9>") 'previous-error)
+(global-set-key (kbd "C-<f9>") 'first-error)
 
 ;;;;;;;;;;;;;;;;;
 ;; APPEARANCE
