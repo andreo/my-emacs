@@ -110,10 +110,10 @@
 
 
 ;; color-theme
-(add-to-list 'load-path "~/.emacs.d/my-emacs/color-theme")
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-arjen)
+;;(add-to-list 'load-path "~/.emacs.d/my-emacs/color-theme")
+;;(require 'color-theme)
+;;(color-theme-initialize)
+;;(color-theme-arjen)
 
 (load "~/.emacs.d/my-emacs/haskell-mode-2.4/haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
