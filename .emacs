@@ -115,7 +115,8 @@
 ;;(color-theme-initialize)
 ;;(color-theme-arjen)
 
-(load "~/.emacs.d/my-emacs/haskell-mode-2.4/haskell-site-file")
+(load "~/.emacs.d/my-emacs/haskell-mode/haskell-site-file")
+(add-hook 'haskell-mode-hook 'turn-on-font-lock)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
