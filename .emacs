@@ -144,3 +144,9 @@
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/my-emacs/auto-install/")
 (auto-install-update-emacswiki-package-name t)
+
+;; slime
+(add-to-list 'load-path "~/.emacs.d/my-emacs/slime/")  ; your SLIME directory
+(setq inferior-lisp-program "sbcl") ; your Lisp system
+(require 'slime)
+(slime-setup '(slime-repl))
