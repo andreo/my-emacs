@@ -119,12 +119,6 @@
 (add-hook 'haskell-mode-hook 'turn-on-font-lock)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-
-;; auto-install
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/my-emacs/auto-install/")
-(auto-install-update-emacswiki-package-name t)
 
 ;; run my org mode
 (find-file "~/.emacs.d/my-emacs/my.org")
@@ -145,3 +139,8 @@
 
 ;;disabling tool-bar
 (tool-bar-mode -1)
+
+;; auto-install
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.d/my-emacs/auto-install/")
+(auto-install-update-emacswiki-package-name t)
