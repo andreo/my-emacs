@@ -9,11 +9,14 @@
 (global-set-key (kbd "S-<f9>") 'previous-error)
 (global-set-key (kbd "C-<f9>") 'first-error)
 
+;; smart compilation
 (defun jam-project?()
+  "the directory is jam project when it contains 'Jamroot' or 'Jamfile'"
   (or (file-exists-p "Jamroot")
       (file-exists-p "Jamfile")))
 
 (defun smart-compile()
+  "defines project type and compiles it"
   (interactive)
   (if (jam-project?) (compile "bjam debug") (call-interactively 'compile)))
 
@@ -69,10 +72,11 @@
 (setq indent-tabs-mode nil)
 
 ;; erlang
-(add-to-list 'load-path "~/erlang/lib/tools/emacs")
-(setq erlang-root-dir "~/erlang/lib/tools/emacs")
-(setq exec-path (cons "~/erlang/lib/tools/emacs" exec-path))
-(require 'erlang-start)
+(when (file-exists-p "~/erlang/")
+  (add-to-list 'load-path "~/erlang/lib/tools/emacs")
+  (setq erlang-root-dir "~/erlang/lib/tools/emacs")
+  (setq exec-path (cons "~/erlang/lib/tools/emacs" exec-path))
+  (require 'erlang-start))
 
 ;; magit
 (add-to-list 'load-path "~/.emacs.d/my-emacs/magit")
@@ -134,8 +138,12 @@
 (find-file "~/.emacs.d/my-emacs/my.org")
 
 ;; terminal
-(require 'multi-term)
-(global-set-key (kbd "\e\e1") 'multi-term)
+(cond
+ ((equal system-type 'gnu/linux)
+  (require 'multi-term)
+  (global-set-key (kbd "\e\e1") 'multi-term))
+ (t
+  (global-set-key (kbd "\e\e1") 'eshell)))
 
 ;; anything
 (require 'anything-config)
