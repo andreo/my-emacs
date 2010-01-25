@@ -19,3 +19,12 @@
 [submodule "jabber"]
 	path = jabber
 	url = git://emacs-jabber.git.sourceforge.net/gitroot/emacs-jabber/emacs-jabber
+[submodule "lisp/clojure-mode"]
+	path = lisp/clojure-mode
+	url = git://github.com/jochu/clojure-mode.git
+[submodule "lisp/swank-clojure"]
+	path = lisp/swank-clojure
+	url = git://github.com/jochu/swank-clojure.git
+[submodule "lisp/slime"]
+	path = lisp/slime
+	url = git://git.boinkor.net/slime.git

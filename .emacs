@@ -164,7 +164,30 @@
 (auto-install-update-emacswiki-package-name t)
 
 ;; slime
-(add-to-list 'load-path "~/.emacs.d/my-emacs/slime/")  ; your SLIME directory
-(setq inferior-lisp-program "sbcl") ; your Lisp system
+;;(add-to-list 'load-path "~/.emacs.d/my-emacs/slime/")  ; your SLIME directory
+;;(setq inferior-lisp-program "sbcl") ; your Lisp system
+;;(require 'slime)
+;;(slime-setup '(slime-repl))
+
+
+;; clojure-mode
+(add-to-list 'load-path "~/.emacs.d/my-emacs/lisp/clojure-mode")
+(require 'clojure-mode)
+
+;; swank-clojure
+(add-to-list 'load-path "~/.emacs.d/my-emacs/lisp/swank-clojure/src/emacs")
+
+(setq swank-clojure-jar-path "/usr/share/java/clojure.jar"
+      swank-clojure-extra-classpaths (list
+				      "~/.emacs.d/my-emacs/lisp/swank-clojure/src/main/clojure"
+				      "~/.clojure/clojure-contrib.jar"))
+
+(require 'swank-clojure-autoload)
+
+;; slime
+(eval-after-load "slime"
+  '(progn (slime-setup '(slime-repl))))
+
+(add-to-list 'load-path "~/.emacs.d/my-emacs/lisp/slime/")  ; your SLIME directory
 (require 'slime)
-(slime-setup '(slime-repl))
+(slime-setup)
