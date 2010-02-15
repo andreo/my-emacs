@@ -7,4 +7,4 @@ sudo git cfg alias.cm commit
 sudo git cfg alias.cmm 'commit -m'
 sudo git cfg alias.co 'checkout'
 sudo git cfg alias.coh 'checkout HEAD'
-sudo git cfg alias.br 'brunch'
+sudo git cfg alias.br 'branch'
