@@ -4,8 +4,7 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
 ;; copy/patse clipboard
-(global-set-key (kbd "\e\ew") 'clipboard-kill-ring-save)
-(global-set-key (kbd "\e\ey") 'clipboard-yank)
+(setq x-select-enable-clipboard t)
 
 (global-set-key (kbd "\e\ef") 'find-dired)
 (global-set-key (kbd "\e\eg") 'rgrep)
