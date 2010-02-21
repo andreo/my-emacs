@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo git config --global alias.cf config
 sudo git cf --global alias.cfg 'config --global'
 sudo git cfg color.ui auto
