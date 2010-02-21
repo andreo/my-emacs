@@ -3,6 +3,10 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs")
 (add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
+;; copy/patse clipboard
+(global-set-key (kbd "\e\ew") 'clipboard-kill-ring-save)
+(global-set-key (kbd "\e\ey") 'clipboard-yank)
+
 (global-set-key (kbd "\e\ef") 'find-dired)
 (global-set-key (kbd "\e\eg") 'rgrep)
 (global-set-key (kbd "<f9>") 'next-error)
