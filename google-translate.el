@@ -74,12 +74,28 @@
 prompting with string PROMPT-MESSAGE."
   (or value (read-from-minibuffer prompt-message)))
 
+(defun fit-string-to-size (string max-size)
+  "If STRING lenght greater than MAX-SIZE cut STRING to fit MAX-SIZE."
+  (if (<= (length string) max-size)
+      string
+    (concat (substring string 0 (- max-size 3)) "...")))
+
+(defun read-text-from-to (text from to)
+  "Read TEXT, FROM language and TO language from minibuffer."
+  (let* ((text (prompt-if-nil text "translate: "))
+         (cut-text (fit-string-to-size text 15))
+         (from (prompt-if-nil from (format "translate '%s' from: "
+                                           cut-text)))
+         (to (prompt-if-nil to (format "translate '%s' from '%s' to: "
+                                       cut-text
+                                       from))))
+     (list text from to)))
+
 (defun google-translate (text from to)
   "Translate TEXT from language FROM to language TO."
-  (interactive)
-  (let* ((url (google-make-translate-url (prompt-if-nil text "text: ")
-                                         (prompt-if-nil from "from: ")
-                                         (prompt-if-nil to "to: ")))
+  (interactive (read-text-from-to nil nil nil))
+
+  (let* ((url (google-make-translate-url text from to))
          (json (url-retrieve-json url))
          (result (getf (getf json :responseData) :translatedText)))
     (decode-coding-string result 'utf-8)))
@@ -91,11 +107,17 @@ prompting with string PROMPT-MESSAGE."
         ((string= language "en") "ru")))
 
 (defun google-translate-dwin (text)
-  "Translate TEXT to language i mean."
-  (interactive "stext: ")
-  (let* ((from (google-detect-language text))
-         (to (guess-language-to from)))
-    (google-translate text from to)))
+  "Translate TEXT to the language i mean (Do what i mean!)."
+  (interactive "stranslate: ")
+  (let* ((from-language (google-detect-language text))
+         (args (read-text-from-to text
+                                  from-language
+                                  (guess-language-to from-language)))
+         (text (first args))
+         (from (second args))
+         (to (third args)))
+    (or (google-translate text from to)
+        "Don't know :(")))
 
 (defun google-translate-current-word()
   "Translate current word."
