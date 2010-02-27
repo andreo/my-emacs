@@ -133,9 +133,9 @@ prompting with string PROMPT-MESSAGE."
                                   (guess-language-to from-language)))
          (text (first args))
          (from (second args))
-         (to (third args)))
-    (or (google-translate text from to)
-        "Don't know :(")))
+         (to (third args))
+         (translated (google-translate text from to)))
+    (format "\n%s: %s\n%s: %s" from text to translated)))
 
 (defun google-translate-current-word()
   "Translate current word."
