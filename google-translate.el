@@ -99,12 +99,22 @@ prompting with string PROMPT-MESSAGE."
          (json (url-retrieve-json url))
          (result (getf (getf json :responseData) :translatedText)))
     (decode-coding-string result 'utf-8)))
-    
+
+(defvar guess-language-table (make-hash-table)
+  "Contain information about what language to translate to.")
+
+(defun add-to-hash-table (hash-table plist)
+  (loop for (key value) on plist by #'cddr do
+        (puthash key value hash-table)))
+
+(add-to-hash-table guess-language-table
+                   (list 'en 'ru
+                         'ru 'en
+                         'uk 'en))
 
 (defun guess-language-to (language)
-  "If LANGUAGE is ru return en, if LANGUAGE is en return ru, else nil."
-  (cond ((string= language "ru") "en")
-        ((string= language "en") "ru")))
+  "Guess the LANGUAGE i want to translate."
+  (symbol-name (gethash (intern language) guess-language-table)))
 
 (defun google-translate-dwin (text)
   "Translate TEXT to the language i mean (Do what i mean!)."
