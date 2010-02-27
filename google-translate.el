@@ -3,18 +3,30 @@
 (require 'json)
 
 ;; usage:
+;;
 ;; * (google-detect-language "Detect the language of this text")
 ;;   "en"
+;;
 ;; * (google-translate-dwin "Guess what i mean")
 ;;   "Угадайте, что я имею в виду"
+;;
 ;; * (google-translate "Hello world!" "en" "ru")
 ;;   "Привет мир!"
+;;
 ;; * (google-translate "Hello world!" "en" "uk")
 ;;   "Привіт світ!"
+;;
 ;; * (google-translate "Hello world!" "en" "de")
 ;;   "Hallo Welt!"
+;;
 ;; * (google-translate "Hello world!" "en" "fr")
 ;;   "Bonjour le monde!"
+;;
+;; * customize guess language table:
+;;   (add-to-hash-table guess-language-table
+;;                      (list 'en 'ru
+;;                            'ru 'en
+;;                            'uk 'en))
 
 ;;; Code:
 (defun url-data (url)
@@ -104,6 +116,7 @@ prompting with string PROMPT-MESSAGE."
   "Contain information about what language to translate to.")
 
 (defun add-to-hash-table (hash-table plist)
+  "Add to HASH-TABLE the PLIST of key value."
   (loop for (key value) on plist by #'cddr do
         (puthash key value hash-table)))
 
