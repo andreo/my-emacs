@@ -107,11 +107,6 @@ prompting with string PROMPT-MESSAGE."
   (loop for (key value) on plist by #'cddr do
         (puthash key value hash-table)))
 
-(add-to-hash-table guess-language-table
-                   (list 'en 'ru
-                         'ru 'en
-                         'uk 'en))
-
 (defun guess-language-to (language)
   "Guess the LANGUAGE i want to translate."
   (symbol-name (gethash (intern language) guess-language-table)))
