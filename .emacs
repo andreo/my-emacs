@@ -169,7 +169,7 @@
 (load-file "~/.emacs.d/my-emacs/lisp/setup-slime.el")
 
 ;; unscroll
-(load-file "~/.emacs.d/my-emacs/unscroll.el")
+(require 'unscroll)
 (global-set-key (kbd "\e\eu") 'unscroll)
 
 ;; google translate
