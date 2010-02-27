@@ -173,8 +173,8 @@
 (global-set-key (kbd "\e\eu") 'unscroll)
 
 ;; google translate
+(require 'google-translate)
 (global-set-key (kbd "\e\et")
                 (lambda ()
                   (interactive)
-                  (require 'google-translate)
                   (print (google-translate-current-word))))
