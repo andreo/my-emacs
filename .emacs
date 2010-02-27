@@ -172,3 +172,9 @@
 (load-file "~/.emacs.d/my-emacs/unscroll.el")
 (global-set-key (kbd "\e\eu") 'unscroll)
 
+;; google translate
+(global-set-key (kbd "\e\et")
+                (lambda ()
+                  (interactive)
+                  (require 'google-translate)
+                  (print (google-translate-current-word))))

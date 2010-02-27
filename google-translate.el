@@ -2,12 +2,19 @@
 (require 'url)
 (require 'json)
 
-;;; Commentary:
 ;; usage:
-;;   (google-detect-language "Detect the language of this text")
-;;   (google-detect-language "Привет, лошарики!")
-;;   (google-translate "Hello world!" "en" "ru")
-;;   (google-translate-dwin "Some text")
+;; * (google-detect-language "Detect the language of this text")
+;;   "en"
+;; * (google-translate-dwin "Guess what i mean")
+;;   "Угадайте, что я имею в виду"
+;; * (google-translate "Hello world!" "en" "ru")
+;;   "Привет мир!"
+;; * (google-translate "Hello world!" "en" "uk")
+;;   "Привіт світ!"
+;; * (google-translate "Hello world!" "en" "de")
+;;   "Hallo Welt!"
+;; * (google-translate "Hello world!" "en" "fr")
+;;   "Bonjour le monde!"
 
 ;;; Code:
 (defun url-data (url)
@@ -23,7 +30,6 @@
               data   (buffer-substring (1+ (point)) (point-max)))
       ;; unexpected situation, return the whole buffer
       (setq data (buffer-string))))
-  ;; (print data)
   (values data header status))
 
 (defun url-retrieve-json (url)
@@ -65,20 +71,19 @@
 
 (defun prompt-if-nil (value prompt-message)
   "If VALUE is nil read a string from the minibuffer,
-  prompting with string PROMPT-MESSAGE."
+prompting with string PROMPT-MESSAGE."
   (or value (read-from-minibuffer prompt-message)))
 
 (defun google-translate (text from to)
   "Translate TEXT from language FROM to language TO."
+  (interactive)
   (let* ((url (google-make-translate-url (prompt-if-nil text "text: ")
                                          (prompt-if-nil from "from: ")
                                          (prompt-if-nil to "to: ")))
-         (json (url-retrieve-json url)))
-    ;; (print (format "url: %s" url))
-    ;; (print json)
-    (getf (getf json :responseData) :translatedText)))
-
-;; (google-translate nil "ru" "en")
+         (json (url-retrieve-json url))
+         (result (getf (getf json :responseData) :translatedText)))
+    (decode-coding-string result 'utf-8)))
+    
 
 (defun guess-language-to (language)
   "If LANGUAGE is ru return en, if LANGUAGE is en return ru, else nil."
@@ -90,11 +95,11 @@
   (interactive "stext: ")
   (let* ((from (google-detect-language text))
          (to (guess-language-to from)))
-    ;; (print (format "from %s to %s" from to))
     (google-translate text from to)))
 
 (defun google-translate-current-word()
   "Translate current word."
+  (interactive)
   (google-translate-dwin (current-word)))
 
 (provide 'google-translate)
