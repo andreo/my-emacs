@@ -48,7 +48,7 @@
   "Retrieve json result of URL as a plist."
   (let ((data (first (url-data url)))
         (json-object-type 'plist))
-    (json-read-from-string data)))
+    (when data (json-read-from-string data))))
 
 
 
@@ -81,10 +81,11 @@
           "&q=" (url-hexify-string text)
           "&langpair=" from "%7c" to))
 
-(defun prompt-if-nil (value prompt-message)
+(defmacro prompt-if-nil (value prompt-message history)
   "If VALUE is nil read a string from the minibuffer,
-prompting with string PROMPT-MESSAGE."
-  (or value (read-from-minibuffer prompt-message)))
+prompting with string PROMPT-MESSAGE.
+HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
+  `(or ,value (read-from-minibuffer ,prompt-message nil nil nil ,history)))
 
 (defun fit-string-to-size (string max-size)
   "If STRING lenght greater than MAX-SIZE cut STRING to fit MAX-SIZE."
@@ -92,15 +93,26 @@ prompting with string PROMPT-MESSAGE."
       string
     (concat (substring string 0 (- max-size 3)) "...")))
 
+(defvar google-translate-text-history nil
+  "History of translated texts.")
+(defvar google-translate-language-history nil
+  "History of input languages.")
+
 (defun read-text-from-to (text from to)
   "Read TEXT, FROM language and TO language from minibuffer."
-  (let* ((text (prompt-if-nil text "translate: "))
+  (let* ((text (prompt-if-nil text
+                              "translate: " 
+                              'google-translate-text-history))
          (cut-text (fit-string-to-size text 15))
-         (from (prompt-if-nil from (format "translate '%s' from: "
-                                           cut-text)))
-         (to (prompt-if-nil to (format "translate '%s' from '%s' to: "
-                                       cut-text
-                                       from))))
+         (from (prompt-if-nil from
+                              (format "translate '%s' from: "
+                                      cut-text)
+                            'google-translate-language-history))
+         (to (prompt-if-nil to
+                            (format "translate '%s' from '%s' to: "
+                                    cut-text
+                                    from)
+                            'google-translate-language-history)))
      (list text from to)))
 
 (defun google-translate (text from to)
@@ -121,8 +133,9 @@ prompting with string PROMPT-MESSAGE."
         (puthash key value hash-table)))
 
 (defun guess-language-to (language)
-  "Guess the LANGUAGE i want to translate."
-  (symbol-name (gethash (intern language) guess-language-table)))
+  "Guess the language i want to translate to from LANGUAGE."
+  (let ((language-to (gethash (intern language) guess-language-table)))
+    (when language-to (symbol-name language-to))))
 
 (defun google-translate-dwin (text)
   "Translate TEXT to the language i mean (Do what i mean!)."
