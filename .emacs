@@ -3,6 +3,9 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs")
 (add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
+;; using the systems 'trash' when deleting files
+(setq delete-by-moving-to-trash t)
+
 ;; copy/patse clipboard
 (setq x-select-enable-clipboard t)
 
