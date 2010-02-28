@@ -3,6 +3,7 @@
 (add-to-list 'load-path "~/.emacs.d/my-emacs")
 (add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
+(load-file "conf/ibuffer.el")
 (load-file "conf/c-mode.el")
 
 ;; using the systems 'trash' when deleting files
