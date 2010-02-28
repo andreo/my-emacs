@@ -1,6 +1,6 @@
 ;;; google-translate.el --- Google Translate API
-(require 'url)
-(require 'json)
+
+;; Copyright (C) 2010 Andrey Torba, andrey.torba@gmail.com
 
 ;; usage:
 ;;
