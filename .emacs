@@ -122,4 +122,4 @@
 (global-set-key (kbd "\e\etw")
                 (lambda ()
                   (interactive)
-                  (print (gt-translate-current-word))))
+                  (message "%s" (gt-translate-current-word))))

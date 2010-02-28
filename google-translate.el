@@ -153,7 +153,7 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
          (from (second args))
          (to (third args))
          (translated (gt-translate text from to)))
-    (format "\n%s: %s\n%s: %s" from text to translated)))
+    (format "%s: %s\n%s: %s" from text to translated)))
 
 (defun gt-translate-current-word()
   "Translate current word."
