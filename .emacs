@@ -119,7 +119,7 @@
                          'ru 'en
                          'uk 'en))
 
-(global-set-key (kbd "\e\et")
+(global-set-key (kbd "\e\etw")
                 (lambda ()
                   (interactive)
                   (print (google-translate-current-word))))
