@@ -142,8 +142,9 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
   (let ((language-to (gethash (intern language) gt-guess-language-table)))
     (when language-to (symbol-name language-to))))
 
-(defun gt-translate-dwin (text)
-  "Translate TEXT to the language i mean (Do what i mean!)."
+(defun gt-inteligent-translate (text)
+  "Translate TEXT, detecting source language
+and guessing language to translate."
   (interactive "stranslate: ")
   (let* ((from-language (gt-detect-language text))
          (args (gt-read-text-from-to text
@@ -158,7 +159,7 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
 (defun gt-translate-current-word()
   "Translate current word."
   (interactive)
-  (gt-translate-dwin (current-word)))
+  (gt-inteligent-translate (current-word)))
 
 (provide 'google-translate)
 
