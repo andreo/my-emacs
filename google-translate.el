@@ -1,27 +1,39 @@
 ;;; google-translate.el --- Google Translate API
 
-;; Copyright (C) 2010 Andrey Torba, andrey.torba@gmail.com
+;; Copyright (C) 2010 Andrey Torba
 
-;; usage:
-;;
+;; Author: Andrey Torba <andrey.torba@gmail.com>
+;; Version: 0.1
+;; Keywords: convenience
+
+;;; Commentary:
+
+;; This is a library for rapid text translating
+;; using Google AJAX Language API 
+
+;; Learn all about Google AJAX Language API here:
+;;    <http://code.google.com/intl/en/apis/ajaxlanguage/>
+
+;; Usage:
+
 ;; * (gt-detect-language "Detect the language of this text")
 ;;   "en"
-;;
+
 ;; * (gt-translate-dwin "Guess what i mean")
 ;;   "Угадайте, что я имею в виду"
-;;
+
 ;; * (gt-translate "Hello world!" "en" "ru")
 ;;   "Привет мир!"
-;;
+
 ;; * (gt-translate "Hello world!" "en" "uk")
 ;;   "Привіт світ!"
-;;
+
 ;; * (gt-translate "Hello world!" "en" "de")
 ;;   "Hallo Welt!"
-;;
+
 ;; * (gt-translate "Hello world!" "en" "fr")
 ;;   "Bonjour le monde!"
-;;
+
 ;; * customize guess language table:
 ;;   (setq gt-guess-language-table
 ;;         (list 'en 'ru
@@ -49,7 +61,7 @@
   (values data header status))
 
 (defun url-retrieve-json (url)
-  "Retrieve json result of URL as a plist."
+  "Retrieve json result of URL as a `plist'."
   (let ((data (first (url-data url)))
         (json-object-type 'plist))
     (when data (json-read-from-string data))))
@@ -87,8 +99,8 @@
           "&langpair=" from "%7c" to))
 
 (defmacro prompt-if-nil (value prompt-message history)
-  "If VALUE is nil read a string from the minibuffer,
-prompting with string PROMPT-MESSAGE.
+  "If VALUE is nil read it from the minibuffer.
+Prompt with string PROMPT-MESSAGE.
 HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
   `(or ,value (read-from-minibuffer ,prompt-message nil nil nil ,history)))
 
@@ -106,7 +118,7 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
 (defun gt-read-text-from-to (text from to)
   "Read TEXT, FROM language and TO language from minibuffer."
   (let* ((text (prompt-if-nil text
-                              "translate: " 
+                              "translate: "
                               'gt-translate-text-history))
          (cut-text (fit-string-to-size text 15))
          (from (prompt-if-nil from
@@ -138,8 +150,7 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
     (when language-to (symbol-name language-to))))
 
 (defun gt-inteligent-translate (text)
-  "Translate TEXT, detecting source language
-and guessing language to translate."
+  "Translate TEXT, detecting source language and guessing language to translate."
   (interactive "stranslate: ")
   (let* ((from-language (gt-detect-language text))
          (args (gt-read-text-from-to text
