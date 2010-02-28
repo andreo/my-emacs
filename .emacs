@@ -114,10 +114,10 @@
 
 ;; google translate
 (require 'google-translate)
-(add-to-hash-table gt-guess-language-table
-                   (list 'en 'ru
-                         'ru 'en
-                         'uk 'en))
+(setq gt-guess-language-table
+      (list 'en 'ru
+            'ru 'en
+            'uk 'en))
 
 (global-set-key (kbd "\e\etw")
                 (lambda ()

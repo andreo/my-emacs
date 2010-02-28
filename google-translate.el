@@ -23,10 +23,10 @@
 ;;   "Bonjour le monde!"
 ;;
 ;; * customize guess language table:
-;;   (add-to-hash-table gt-guess-language-table
-;;                      (list 'en 'ru
-;;                            'ru 'en
-;;                            'uk 'en))
+;;   (setq gt-guess-language-table
+;;         (list 'en 'ru
+;;               'ru 'en
+;;               'uk 'en))
 
 ;;; Code:
 
@@ -129,17 +129,12 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
          (result (getf (getf json :responseData) :translatedText)))
     (decode-coding-string result 'utf-8)))
 
-(defvar gt-guess-language-table (make-hash-table)
+(defvar gt-guess-language-table nil
   "Contain information about what language to translate to.")
-
-(defun add-to-hash-table (hash-table plist)
-  "Add to HASH-TABLE the PLIST of key value."
-  (loop for (key value) on plist by #'cddr do
-        (puthash key value hash-table)))
 
 (defun gt-guess-language-to (language)
   "Guess the language i want to translate to from LANGUAGE."
-  (let ((language-to (gethash (intern language) gt-guess-language-table)))
+  (let ((language-to (getf gt-guess-language-table (intern language))))
     (when language-to (symbol-name language-to))))
 
 (defun gt-inteligent-translate (text)
