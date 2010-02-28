@@ -29,6 +29,10 @@
 ;;                            'uk 'en))
 
 ;;; Code:
+
+(require 'url)
+(require 'json)
+
 (defun url-data (url)
   "Retrieve data, header and status of URL."
   (with-current-buffer
@@ -107,13 +111,13 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
          (from (prompt-if-nil from
                               (format "translate '%s' from: "
                                       cut-text)
-                            'google-translate-language-history))
+                              'google-translate-language-history))
          (to (prompt-if-nil to
                             (format "translate '%s' from '%s' to: "
                                     cut-text
                                     from)
                             'google-translate-language-history)))
-     (list text from to)))
+    (list text from to)))
 
 (defun google-translate (text from to)
   "Translate TEXT from language FROM to language TO."
