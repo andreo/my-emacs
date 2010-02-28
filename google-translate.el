@@ -71,7 +71,8 @@
 
 
 (defvar gt-detect-language-base-url
-  "http://ajax.googleapis.com/ajax/services/language/detect")
+  "http://ajax.googleapis.com/ajax/services/language/detect"
+  "Google AJAX Language API base url to detect language of text.")
 
 (defun gt-make-detect-language-url (text)
   "Make url to detect language of TEXT."
@@ -89,7 +90,8 @@
 
 
 (defvar gt-translate-base-url
-  "http://ajax.googleapis.com/ajax/services/language/translate")
+  "http://ajax.googleapis.com/ajax/services/language/translate"
+  "Google AJAX Language API base url to translate text.")
 
 (defun gt-make-translate-url (text from to)
   "Make url to translate TEXT from language FROM to language TO."
