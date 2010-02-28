@@ -4,26 +4,26 @@
 
 ;; usage:
 ;;
-;; * (google-detect-language "Detect the language of this text")
+;; * (gt-detect-language "Detect the language of this text")
 ;;   "en"
 ;;
-;; * (google-translate-dwin "Guess what i mean")
+;; * (gt-translate-dwin "Guess what i mean")
 ;;   "Угадайте, что я имею в виду"
 ;;
-;; * (google-translate "Hello world!" "en" "ru")
+;; * (gt-translate "Hello world!" "en" "ru")
 ;;   "Привет мир!"
 ;;
-;; * (google-translate "Hello world!" "en" "uk")
+;; * (gt-translate "Hello world!" "en" "uk")
 ;;   "Привіт світ!"
 ;;
-;; * (google-translate "Hello world!" "en" "de")
+;; * (gt-translate "Hello world!" "en" "de")
 ;;   "Hallo Welt!"
 ;;
-;; * (google-translate "Hello world!" "en" "fr")
+;; * (gt-translate "Hello world!" "en" "fr")
 ;;   "Bonjour le monde!"
 ;;
 ;; * customize guess language table:
-;;   (add-to-hash-table guess-language-table
+;;   (add-to-hash-table gt-guess-language-table
 ;;                      (list 'en 'ru
 ;;                            'ru 'en
 ;;                            'uk 'en))
@@ -58,29 +58,30 @@
 
 
 
-(defvar google-detect-language-base-url
+(defvar gt-detect-language-base-url
   "http://ajax.googleapis.com/ajax/services/language/detect")
 
-(defun google-make-detect-language-url (text)
+(defun gt-make-detect-language-url (text)
   "Make url to detect language of TEXT."
-  (concat google-detect-language-base-url
+  (concat gt-detect-language-base-url
           "?v=1.0"
           "&q=" (url-hexify-string text)))
 
-(defun google-detect-language (text)
+(defun gt-detect-language (text)
   "Retrieve language of TEXT."
-  (let* ((url (google-make-detect-language-url text))
+  (interactive "stext: ")
+  (let* ((url (gt-make-detect-language-url text))
          (json (url-retrieve-json url)))
     (getf (getf json :responseData) :language)))
 
 
 
-(defvar google-translate-base-url
+(defvar gt-translate-base-url
   "http://ajax.googleapis.com/ajax/services/language/translate")
 
-(defun google-make-translate-url (text from to)
+(defun gt-make-translate-url (text from to)
   "Make url to translate TEXT from language FROM to language TO."
-  (concat google-translate-base-url
+  (concat gt-translate-base-url
           "?v=1.0"
           "&q=" (url-hexify-string text)
           "&langpair=" from "%7c" to))
@@ -97,38 +98,38 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
       string
     (concat (substring string 0 (- max-size 3)) "...")))
 
-(defvar google-translate-text-history nil
+(defvar gt-translate-text-history nil
   "History of translated texts.")
-(defvar google-translate-language-history nil
+(defvar gt-translate-language-history nil
   "History of input languages.")
 
-(defun read-text-from-to (text from to)
+(defun gt-read-text-from-to (text from to)
   "Read TEXT, FROM language and TO language from minibuffer."
   (let* ((text (prompt-if-nil text
                               "translate: " 
-                              'google-translate-text-history))
+                              'gt-translate-text-history))
          (cut-text (fit-string-to-size text 15))
          (from (prompt-if-nil from
                               (format "translate '%s' from: "
                                       cut-text)
-                              'google-translate-language-history))
+                              'gt-translate-language-history))
          (to (prompt-if-nil to
                             (format "translate '%s' from '%s' to: "
                                     cut-text
                                     from)
-                            'google-translate-language-history)))
+                            'gt-translate-language-history)))
     (list text from to)))
 
-(defun google-translate (text from to)
+(defun gt-translate (text from to)
   "Translate TEXT from language FROM to language TO."
-  (interactive (read-text-from-to nil nil nil))
+  (interactive (gt-read-text-from-to nil nil nil))
 
-  (let* ((url (google-make-translate-url text from to))
+  (let* ((url (gt-make-translate-url text from to))
          (json (url-retrieve-json url))
          (result (getf (getf json :responseData) :translatedText)))
     (decode-coding-string result 'utf-8)))
 
-(defvar guess-language-table (make-hash-table)
+(defvar gt-guess-language-table (make-hash-table)
   "Contain information about what language to translate to.")
 
 (defun add-to-hash-table (hash-table plist)
@@ -136,28 +137,28 @@ HISTORY, if non-nil, specifies a history list (see `read-from-minibuffer')."
   (loop for (key value) on plist by #'cddr do
         (puthash key value hash-table)))
 
-(defun guess-language-to (language)
+(defun gt-guess-language-to (language)
   "Guess the language i want to translate to from LANGUAGE."
-  (let ((language-to (gethash (intern language) guess-language-table)))
+  (let ((language-to (gethash (intern language) gt-guess-language-table)))
     (when language-to (symbol-name language-to))))
 
-(defun google-translate-dwin (text)
+(defun gt-translate-dwin (text)
   "Translate TEXT to the language i mean (Do what i mean!)."
   (interactive "stranslate: ")
-  (let* ((from-language (google-detect-language text))
-         (args (read-text-from-to text
-                                  from-language
-                                  (guess-language-to from-language)))
+  (let* ((from-language (gt-detect-language text))
+         (args (gt-read-text-from-to text
+                                     from-language
+                                     (gt-guess-language-to from-language)))
          (text (first args))
          (from (second args))
          (to (third args))
-         (translated (google-translate text from to)))
+         (translated (gt-translate text from to)))
     (format "\n%s: %s\n%s: %s" from text to translated)))
 
-(defun google-translate-current-word()
+(defun gt-translate-current-word()
   "Translate current word."
   (interactive)
-  (google-translate-dwin (current-word)))
+  (gt-translate-dwin (current-word)))
 
 (provide 'google-translate)
 

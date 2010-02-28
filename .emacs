@@ -114,7 +114,7 @@
 
 ;; google translate
 (require 'google-translate)
-(add-to-hash-table guess-language-table
+(add-to-hash-table gt-guess-language-table
                    (list 'en 'ru
                          'ru 'en
                          'uk 'en))
@@ -122,4 +122,4 @@
 (global-set-key (kbd "\e\etw")
                 (lambda ()
                   (interactive)
-                  (print (google-translate-current-word))))
+                  (print (gt-translate-current-word))))
