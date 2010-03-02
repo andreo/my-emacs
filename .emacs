@@ -123,3 +123,6 @@
                 (lambda ()
                   (interactive)
                   (message "%s" (gt-translate-current-word))))
+
+;; etest
+(add-to-list 'load-path "~/.emacs.d/my-emacs/etest/")

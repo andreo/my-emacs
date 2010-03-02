@@ -28,3 +28,6 @@
 [submodule "lisp/slime"]
 	path = lisp/slime
 	url = git://git.boinkor.net/slime.git
+[submodule "etest"]
+	path = etest
+	url = git://github.com/philjackson/etest.git
