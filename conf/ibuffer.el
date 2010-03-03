@@ -2,9 +2,9 @@
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote (("default"
-               ("Org" ;; all org-related buffers
+               ("Org"
                 (mode . org-mode))
-               ("Programming" ;; prog stuff not already in MyProjectX
+               ("Programming"
                 (or
                  (mode . c-mode)
                  (mode . perl-mode)
@@ -13,6 +13,11 @@
                  (mode . haskell-mode)
                  (mode . lisp-mode)
                  ;; etc
+                 ))
+               ("Terminal"
+                (or
+                 (mode . term-mode)
+                 (mode . eshell-mode)
                  ))
                ("ERC"   (mode . erc-mode))))))
 
