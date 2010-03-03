@@ -90,8 +90,10 @@
 ;; terminal
 (cond
  ((equal system-type 'gnu/linux)
-  (require 'multi-term)
-  (global-set-key (kbd "\e\e1") 'multi-term))
+  (global-set-key (kbd "\e\e1")
+                  (lambda()
+                    (interactive)
+                    (ansi-term "/bin/bash"))))
  (t
   (global-set-key (kbd "\e\e1") 'eshell)))
 
