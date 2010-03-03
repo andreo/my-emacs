@@ -10,7 +10,8 @@
 ;; smart compilation
 (defun jam-project? ()
   "The directory is jam project when it contains 'Jamroot' or 'Jamfile'."
-  (or (file-exists-p "Jamroot")
+  (or (file-exists-p "Jamfile.v2")
+      (file-exists-p "Jamroot")
       (file-exists-p "Jamfile")))
 
 (defun smart-compile()
