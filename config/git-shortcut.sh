@@ -1,14 +1,14 @@
 #!/bin/bash
 
-sudo git config --global alias.cf config
-sudo git cf --global alias.cfg 'config --global'
-sudo git cfg color.ui auto
-sudo git cfg alias.st status
-sudo git cfg alias.lg 'log --pretty=oneline --abbrev=6'
-sudo git cfg alias.cm commit
-sudo git cfg alias.cmm 'commit -m'
-sudo git cfg alias.co 'checkout'
-sudo git cfg alias.coh 'checkout HEAD'
-sudo git cfg alias.br 'branch'
-sudo git cfg alias.unp 'log --pretty=oneline --abbrev=6 origin/master..HEAD'
-sudo git cfg alias.dfs 'diff --staged'
+git config --global alias.cf config
+git cf --global alias.cfg 'config --global'
+git cfg color.ui auto
+git cfg alias.st status
+git cfg alias.lg 'log --pretty=oneline --abbrev=6'
+git cfg alias.cm commit
+git cfg alias.cmm 'commit -m'
+git cfg alias.co 'checkout'
+git cfg alias.coh 'checkout HEAD'
+git cfg alias.br 'branch'
+git cfg alias.unp 'log --pretty=oneline --abbrev=6 origin/master..HEAD'
+git cfg alias.dfs 'diff --staged'
