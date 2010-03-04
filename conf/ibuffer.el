@@ -4,9 +4,12 @@
       (quote (("default"
                ("Org"
                 (mode . org-mode))
+               ("Directory"
+                (mode . dired-mode))
                ("Programming"
                 (or
                  (mode . c-mode)
+                 (mode . c++-mode)
                  (mode . perl-mode)
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)
