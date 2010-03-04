@@ -129,3 +129,10 @@
 
 ;; etest
 (add-to-list 'load-path "~/.emacs.d/my-emacs/etest/")
+
+;; MozRepl
+(defun load-moz()
+  "Load MozRepl"
+  (interactive)
+  (add-to-list 'load-path "~/.emacs.d/my-emacs/mozrepl/chrome/content/")
+  (require 'moz))
