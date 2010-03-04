@@ -2,7 +2,9 @@
 ;; switch between cpp/hpp files
 (add-hook 'c-mode-common-hook
           (lambda()
-            (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
+            (local-set-key  (kbd "C-c o") 'ff-find-other-file)
+            ;; (c-set-style "gnu")
+            ))
 
 ;; highlight some words
 (add-hook 'c-mode-common-hook
@@ -13,8 +15,3 @@
                                        font-lock-warning-face t)))))
 
 (setq auto-mode-alist (cons '("\\.ipp$" . c++-mode) auto-mode-alist))
-
-;; set codding style
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (c-set-style "gnu")))
