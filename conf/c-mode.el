@@ -11,6 +11,9 @@
                                     '(("\\<\\(FIXME\\|TODO\\|BUG\\):"
                                        1
                                        font-lock-warning-face t)))))
+
+(setq auto-mode-alist (cons '("\\.ipp$" . c++-mode) auto-mode-alist))
+
 ;; set codding style
 ;; (add-hook 'c-mode-common-hook
 ;;           (lambda ()
