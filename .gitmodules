@@ -31,3 +31,6 @@
 [submodule "etest"]
 	path = etest
 	url = git://github.com/philjackson/etest.git
+[submodule "mozrepl"]
+	path = mozrepl
+	url = git://github.com/bard/mozrepl.git
