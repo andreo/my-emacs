@@ -34,3 +34,6 @@
 [submodule "mozrepl"]
 	path = mozrepl
 	url = git://github.com/bard/mozrepl.git
+[submodule "google-translate"]
+	path = google-translate
+	url = git://github.com/andreo/google-translator.git
