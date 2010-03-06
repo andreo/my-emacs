@@ -7,15 +7,23 @@
 (load-file "~/.emacs.d/my-emacs/conf/ibuffer.el")
 (load-file "~/.emacs.d/my-emacs/conf/c-mode.el")
 
+(defvar jam-project-name-list
+  (list "Jamfile"
+        "Jamfile.v2"
+        "Jamroot"
+        "Jamfile.jam"
+        "Jamroot.jam")
+  "List of jam project names.")
+
 ;; smart compilation
 (defun jam-project? ()
-  "The directory is jam project when it contains 'Jamroot' or 'Jamfile'."
-  (or (file-exists-p "Jamfile.v2")
-      (file-exists-p "Jamroot")
-      (file-exists-p "Jamfile")))
+  "The directory is jam project when it contains one of `jam-project-name-list'."
+  (dolist (name jam-project-name-list)
+    (when (file-exists-p name)
+      (return t))))
 
 (defun smart-compile()
-  "Defines project type and compiles it."
+  "Detect project type and compile it."
   (interactive)
   (if (jam-project?) (compile "bjam debug") (call-interactively 'compile)))
 
