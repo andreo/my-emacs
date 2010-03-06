@@ -12,10 +12,15 @@
                  (mode . c++-mode)
                  (mode . perl-mode)
                  (mode . python-mode)
-                 (mode . emacs-lisp-mode)
                  (mode . haskell-mode)
+                 ))
+               ("Lisp"
+                (or
+                 (mode . emacs-lisp-mode)
                  (mode . lisp-mode)
-                 ;; etc
+                 (mode . slime-repl-mode)
+                 (mode . inferior-emacs-lisp-mode)
+                 (mode . lisp-interaction-mode)
                  ))
                ("Terminal"
                 (or
