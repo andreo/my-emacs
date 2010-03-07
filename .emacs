@@ -6,6 +6,7 @@
 (load-file "~/.emacs.d/my-emacs/conf/general.el")
 (load-file "~/.emacs.d/my-emacs/conf/ibuffer.el")
 (load-file "~/.emacs.d/my-emacs/conf/c-mode.el")
+(load-file "~/.emacs.d/my-emacs/conf/mozrepl.el")
 
 (defvar jam-project-name-list
   (list "Jamfile"
@@ -138,10 +139,3 @@
 
 ;; etest
 (add-to-list 'load-path "~/.emacs.d/my-emacs/etest/")
-
-;; MozRepl
-(defun load-moz()
-  "Load MozRepl"
-  (interactive)
-  (add-to-list 'load-path "~/.emacs.d/my-emacs/mozrepl/chrome/content/")
-  (require 'moz))
