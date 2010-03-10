@@ -37,3 +37,6 @@
 [submodule "google-translate"]
 	path = google-translate
 	url = git://github.com/andreo/google-translator.git
+[submodule "cedet"]
+	path = cedet
+	url = git://github.com/emacsmirror/cedet.git
