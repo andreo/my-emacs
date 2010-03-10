@@ -26,6 +26,7 @@
 (defun smart-compile()
   "Detect project type and compile it."
   (interactive)
+  (save-some-buffers t)
   (if (jam-project?) (compile "bjam debug") (call-interactively 'compile)))
 
 (global-set-key (kbd "<f5>") 'smart-compile)
