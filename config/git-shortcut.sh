@@ -4,7 +4,7 @@ git config --global alias.cf config
 git cf --global alias.cfg 'config --global'
 git cfg color.ui auto
 git cfg alias.st status
-git cfg alias.lg 'log --pretty=oneline --abbrev=6'
+git cfg alias.lg 'log --pretty=format:"%Cgreen%h%Creset - %an, %Cblue%ar%Creset : %s"'
 git cfg alias.cm commit
 git cfg alias.cmm 'commit -m'
 git cfg alias.co 'checkout'
