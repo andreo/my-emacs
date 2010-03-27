@@ -14,4 +14,5 @@
                                        1
                                        font-lock-warning-face t)))))
 
-(setq auto-mode-alist (cons '("\\.ipp$" . c++-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.etest$" . emacs-lisp-mode))
