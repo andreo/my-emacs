@@ -17,6 +17,7 @@
   `(progn
      (slime-setup '(slime-repl))
      (add-to-list 'slime-lisp-implementations '(sbcl ("/usr/bin/sbcl")))
+     (add-to-list 'slime-lisp-implementations '(clisp ("clisp")))
      (custom-set-variables
       '(inhibit-splash-screen t)
       '(slime-complete-symbol*-fancy t)
