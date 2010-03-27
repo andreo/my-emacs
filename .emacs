@@ -140,3 +140,11 @@
 
 ;; etest
 (add-to-list 'load-path "~/.emacs.d/my-emacs/etest/")
+
+;; nautilus
+(defun nautilus ()
+  "Run nautilus in current directory"
+  (interactive)
+  (call-process "nautilus" default-directory))
+
+(global-set-key (kbd "\e\en") 'nautilus)
