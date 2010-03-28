@@ -148,3 +148,6 @@
   (call-process "nautilus" default-directory))
 
 (global-set-key (kbd "\e\en") 'nautilus)
+
+;; ignore case
+(setq read-file-name-completion-ignore-case t)
