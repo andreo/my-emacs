@@ -75,14 +75,14 @@
                 (lambda()(interactive)(switch-to-buffer "*scratch*")))
 (global-set-key (kbd "s-c") ;; .emacs
                 (lambda()(interactive)(find-file "~/.emacs.d/my-emacs/.emacs")))
-;; nautilus
+;; gui-environment
 (defvar gui-environment
   (list 'windows-nt "explorer.exe"
         'gnu/linux "nautilus")
   "System gui environment plist.")
 
 (defun run-gui-environment ()
-  "Run nautilus in current directory"
+  "Run gui environment in current directory"
   (interactive)
   (call-process (getf gui-environment system-type) default-directory))
 
