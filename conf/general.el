@@ -87,3 +87,6 @@
   (call-process (getf gui-environment system-type) default-directory))
 
 (global-set-key (kbd "\e\ere") 'run-gui-environment)
+
+;; ignore case
+(setq read-file-name-completion-ignore-case t)

@@ -141,6 +141,3 @@
 ;; etest
 (add-to-list 'load-path "~/.emacs.d/my-emacs/etest/")
 
-
-;; ignore case
-(setq read-file-name-completion-ignore-case t)
