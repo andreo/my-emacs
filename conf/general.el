@@ -88,5 +88,19 @@
 
 (global-set-key (kbd "\e\ere") 'run-gui-environment)
 
+
+;; terminal
+(defvar terminal-environment
+  (list 'windows-nt "cmd.exe"
+        'gnu/linux "/usr/bin/gnome-terminal")
+  "System terminal environment plist.")
+
+(defun run-terminal-environment ()
+  "Run terminal in current directory"
+  (interactive)
+  (call-process (getf terminal-environment system-type) default-directory))
+
+(global-set-key (kbd "\e\ert") 'run-terminal-environment)
+
 ;; ignore case
 (setq read-file-name-completion-ignore-case t)
