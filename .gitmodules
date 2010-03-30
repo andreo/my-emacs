@@ -40,3 +40,6 @@
 [submodule "cedet"]
 	path = cedet
 	url = git://github.com/emacsmirror/cedet.git
+[submodule "emacs-w3m"]
+	path = emacs-w3m
+	url = git://github.com/sjatkinson/emacs-w3m.git
