@@ -143,3 +143,5 @@
 
 (add-to-list 'load-path "~/.emacs.d/my-emacs/emacs-w3m/")
 (require 'w3m)
+
+(load "~/.emacs.d/my-emacs/nxhtml/autostart.el")
