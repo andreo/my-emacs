@@ -141,3 +141,5 @@
 ;; etest
 (add-to-list 'load-path "~/.emacs.d/my-emacs/etest/")
 
+(add-to-list 'load-path "~/.emacs.d/my-emacs/emacs-w3m/")
+(require 'w3m)
