@@ -80,7 +80,7 @@
   `(defun ,function ()
      ,docstring
      (interactive)
-     (call-process (getf ,plist system-type) nil nil nil
+     (call-process (getf ,plist system-type) nil 0 nil
                    (expand-file-name default-directory))))
 
 ;; gui-environment
