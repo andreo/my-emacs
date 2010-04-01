@@ -111,7 +111,7 @@
 (require 'anything-config)
 
 ;; jabber
-(add-to-list 'load-path "~/.emacs.d/my-emacs/jabber")
+(add-to-list 'load-path "~/.emacs.d/my-emacs/emacs-jabber")
 (require 'jabber-autoloads)
 
 ;; ;; auto-install
