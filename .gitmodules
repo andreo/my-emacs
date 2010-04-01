@@ -46,3 +46,6 @@
 [submodule "nxhtml"]
 	path = nxhtml
 	url = git://github.com/emacsmirror/nxhtml.git
+[submodule "emacs-jabber"]
+	path = emacs-jabber
+	url = git://emacs-jabber.git.sourceforge.net/gitroot/emacs-jabber/emacs-jabber
