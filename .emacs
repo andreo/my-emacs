@@ -145,3 +145,5 @@
 (require 'w3m)
 
 (load "~/.emacs.d/my-emacs/nxhtml/autostart.el")
+(custom-set-variables
+ '(popcmp-completion-style (quote emacs-default)))
