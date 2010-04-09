@@ -1,6 +1,14 @@
 
 ;; using the systems 'trash' when deleting files
 (setq delete-by-moving-to-trash t)
+;; move deleted directory to trash
+(defadvice dired-delete-file (around
+                              activate-move-to-trash
+                              activate
+                              compile)
+  (if delete-by-moving-to-trash
+      (move-file-to-trash (ad-get-arg 0))
+    ad-do-it))
 
 ;; copy/patse clipboard
 (setq x-select-enable-clipboard t)
