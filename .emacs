@@ -7,6 +7,7 @@
 (load-file "~/.emacs.d/my-emacs/conf/ibuffer.el")
 (load-file "~/.emacs.d/my-emacs/conf/c-mode.el")
 (load-file "~/.emacs.d/my-emacs/conf/mozrepl.el")
+(load-file "~/.emacs.d/my-emacs/conf/auto-complete.el")
 
 (defvar jam-project-name-list
   (list "Jamfile"
