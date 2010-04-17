@@ -8,6 +8,7 @@
 (load-file "~/.emacs.d/my-emacs/conf/c-mode.el")
 (load-file "~/.emacs.d/my-emacs/conf/mozrepl.el")
 (load-file "~/.emacs.d/my-emacs/conf/auto-complete.el")
+(load-file "~/.emacs.d/my-emacs/conf/haskell.el")
 
 (defvar jam-project-name-list
   (list "Jamfile"
@@ -90,10 +91,6 @@
 ;;(color-theme-initialize)
 ;;(color-theme-arjen)
 
-(load "~/.emacs.d/my-emacs/haskell-mode/haskell-site-file")
-(add-hook 'haskell-mode-hook 'turn-on-font-lock)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 ;; run my org mode
 ;; (find-file "~/.emacs.d/my-emacs/my.org")
