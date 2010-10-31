@@ -114,4 +114,4 @@
 (setq read-file-name-completion-ignore-case t)
 
 ;;
-(global-set-key "\r" 'newline-and-indent)
+;;(global-set-key "\r" 'newline-and-indent)
