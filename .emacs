@@ -126,10 +126,11 @@
 ;; google translate
 (add-to-list 'load-path "~/.emacs.d/my-emacs/google-translate/")
 (require 'google-translate)
-(setq gt-guess-language-table
-      (list 'en 'ru
-            'ru 'en
-            'uk 'en))
+
+(custom-set-variables
+ '(gt-guess-language-table (list 'en 'ru
+                                 'ru 'en
+                                 'uk 'en)))
 
 (global-set-key (kbd "\e\etw")
                 (lambda ()
