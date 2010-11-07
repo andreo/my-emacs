@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: assosiation
+# key: :
+# --
+${key}: ${value},
+$0

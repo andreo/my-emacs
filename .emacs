@@ -146,3 +146,5 @@
 (load "~/.emacs.d/my-emacs/nxhtml/autostart.el")
 (custom-set-variables
  '(popcmp-completion-style (quote emacs-default)))
+
+(load "~/.emacs.d/my-emacs/yasnippet/config.el")
