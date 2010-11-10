@@ -3933,7 +3933,7 @@ Use multiple times to bind different COMMANDs to the same KEY."
   "Initialize YASnippet and load snippets in the bundle.";;; snippets for text-mode
 (yas/define-snippets 'text-mode
                      '(("``" "`${...}`" "bacticks" nil nil nil nil nil)
-                       ("(" "(${...})" "brackerts" nil nil nil nil "\"keybinding\"")
+                       ("(" "(${...})" "brackerts" nil nil nil nil nil)
                        ("\"\"" "\"${...}\"" "double-quote" nil nil nil nil nil)
                        ("email" "`(replace-regexp-in-string \"@\" \"@NOSPAM.\" user-mail-address)`" "(user's email)" nil nil nil nil nil)
                        ("{" "{ ${...}}" "figure-brackets" nil nil nil nil nil)
@@ -4441,11 +4441,11 @@ Use multiple times to bind different COMMANDs to the same KEY."
 
 ;;; snippets for sql-mode
 (yas/define-snippets 'sql-mode
-                     '(("cret" "CREATE TABLE [${1:dbo}].[${2:TableName}] ($>\n${3:fields}$>\n)$0$>\n" "CREATE" nil nil nil nil "\"keybinding\"")
-                       ("ins" "INSERT INTO ${1:Table} (${2:fields})$>\nVALUES (${3:values})$>\n$0\n" "INSERT" nil nil nil nil "\"keybinding\"")
+                     '(("cret" "CREATE TABLE [${1:dbo}].[${2:TableName}] ($>\n${3:fields}$>\n)$0$>\n" "CREATE" nil nil nil nil nil)
+                       ("ins" "INSERT INTO ${1:Table} (${2:fields})$>\nVALUES (${3:values})$>\n$0\n" "INSERT" nil nil nil nil nil)
                        ("sel" "SELECT ${*}$>\nFROM ${Table}$>\n${WHERE ${condition}}$>\n$0" "SELECT" nil nil nil nil nil)
-                       ("upd" "UPDATE ${1:Table}$>\nSET ${2:${3:name}=${4:value} $5}\n${6:WHERE ${7:condition}$>\n}$0\n" "UPDATE" nil nil nil nil "\"keybinding\"")
-                       ("," ",$>\n${1:name} = ${2:value} $>" "assignment" nil nil nil nil "\"keybinding\"")
+                       ("upd" "UPDATE ${1:Table}$>\nSET ${2:${3:name}=${4:value} $5}\n${6:WHERE ${7:condition}$>\n}$0\n" "UPDATE" nil nil nil nil nil)
+                       ("," ",$>\n${1:name} = ${2:value} $>" "assignment" nil nil nil nil nil)
                        ("constraint" "CONSTRAINT [${1:PK_Name}] PRIMARY KEY ${2:CLUSTERED} ([${3:ColumnName}]) \n" "CONSTRAINT [..] PRIMARY KEY ..." nil nil nil nil nil)
                        ("constraint" "CONSTRAINT [${1:FK_Name}] FOREIGN KEY ${2:CLUSTERED} ([${3:ColumnName}]) \n" "CONSTRAINT [..] FOREIGN KEY ..." nil nil nil nil nil)
                        ("create" "CREATE TABLE [${1:dbo}].[${2:TableName}] \n(\n		${3:Id}		${4:INT IDENTITY(1,1)}		${5:NOT NULL}\n$0\n	CONSTRAINT [${6:PK_}] PRIMARY KEY ${7:CLUSTERED} ([$3]) \n)\nGO\n" "create table ..." nil nil nil nil nil)
