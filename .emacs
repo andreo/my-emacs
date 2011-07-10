@@ -11,6 +11,7 @@
 (load-file "~/.emacs.d/my-emacs/conf/mozrepl.el")
 (load-file "~/.emacs.d/my-emacs/conf/auto-complete.el")
 (load-file "~/.emacs.d/my-emacs/conf/haskell.el")
+(load-file "~/.emacs.d/my-emacs/graphviz-dot-mode.el")
 
 (defvar jam-project-name-list
   (list "Jamfile"
