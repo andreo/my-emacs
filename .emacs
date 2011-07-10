@@ -1,8 +1,10 @@
 (server-start)
 
+(load-file "~/.emacs.d/my-emacs/conf/cedet.el")
 (add-to-list 'load-path "~/.emacs.d/my-emacs")
 (add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
+;;(load-file "~/.emacs.d/my-emacs/conf/cedet.el")
 (load-file "~/.emacs.d/my-emacs/conf/general.el")
 (load-file "~/.emacs.d/my-emacs/conf/ibuffer.el")
 (load-file "~/.emacs.d/my-emacs/conf/c-mode.el")
