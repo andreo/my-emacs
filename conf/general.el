@@ -27,7 +27,7 @@
 (setq column-number-mode t)
 (setq-default transient-mark-mode t)
 (setq next-line-add-newlines nil)
-(global-font-lock-mode 1 t)
+(global-font-lock-mode 1)
 (setq scroll-step 1)
 
 ;; dont show startup message
