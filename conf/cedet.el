@@ -38,8 +38,6 @@
 
 (global-set-key (kbd "C-c o") 'semantic-decoration-include-visit)
 
-(message "install python hooks")
-
 (define-mode-local-override semantic-tag-include-filename python-mode (tag)
   "Return a suitable path for (some) Python imports."
   (mapconcat 'identity
