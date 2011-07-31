@@ -115,3 +115,7 @@
 
 ;;
 ;;(global-set-key "\r" 'newline-and-indent)
+
+(add-hook 'dired-mode-hook
+          '(lambda ()
+             (local-set-key "\C-xq" 'wdired-change-to-wdired-mode)))
