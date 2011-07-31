@@ -49,3 +49,6 @@
 [submodule "emacs-jabber"]
 	path = emacs-jabber
 	url = git://emacs-jabber.git.sourceforge.net/gitroot/emacs-jabber/emacs-jabber
+[submodule "org-mode"]
+	path = org-mode
+	url = git://orgmode.org/org-mode.git

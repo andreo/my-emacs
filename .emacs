@@ -1,6 +1,8 @@
 (server-start)
 
 (load-file "~/.emacs.d/my-emacs/conf/cedet.el")
+(load-file "~/.emacs.d/my-emacs/conf/org-mode.el")
+
 (add-to-list 'load-path "~/.emacs.d/my-emacs")
 (add-to-list 'load-path "~/.emacs.d/my-emacs/auto-install")
 
